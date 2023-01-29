@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stonepapersissor</title>
+    <link rel="stylesheet" href="./g.css">
+</head>
+<body>
+    <div class="container">
+    <h1 id="topic">Stone Paper Sissor</h1>
+    <div class="u" id="hs"><img src="./6893551.png" height="50px" width="50px"></div>
+    <div class="you">
+        <img id="image" class="img1" src="./scizzors.png" height="100px" width="100px">
+    </div>
+    <br>
+    <div class="comp comp2"><img src="./7-79676_laptop-animation-cartoon-clip-art-cartoon-computer-computer.png" height="50px" width="50px"></div>
+    <div class="you you1">
+        <img id="image2" class="img1" src="./paper_image.png" height="100px" width="100px">
+    </div>
+    <h2 id="urscore">Your Score : </h2>
+    <h5 id="same"></h5>
+    <div class="button">
+        <input type="button" id="paper" value="Paper" onclick="clicked(0)">
+        <input type="button" id="sissor" value="Sissor" onclick="clicked(1)">
+        <input type="button" id="stone" value="Stone" onclick="clicked(2)">
+    </div>
+</div>
+    <script>
+        var score=localStorage.getItem('highscore');
+        let div = document.getElementById("hs");
+       let h3 = document.createElement("h3");
+    //    var flag=0;
+    //     if(flag==0){
+    //         score=0;
+    //         flag=1;
+    //     }
+       
+       
+        h3.className = "header-style";
+        h3.innerHTML = `Your High Score was ${score}`;
+       div.parentNode.insertBefore(h3, div);
+        var your_score=0;
+        var cmp_score=0;
+        const button1 = document.querySelector("#paper");
+        const button2 = document.querySelector("#sissor");
+        const button3 = document.querySelector("#stone");
+        const image = document.querySelector("#image");
+        const image2 = document.querySelector("#image2");
+        button1.addEventListener("click", () => {
+        image.src = "./paper_image.png";
+        });
+        button2.addEventListener("click", () => {
+        image.src = "./scizzors.png";
+        });
+        button3.addEventListener("click", () => {
+        image.src = "./rock_image.png";
+        });
+        function clicked(val){
+         
+        // if(flag==0){
+        //     score=0;
+        // }
+       
+        
+            var cmp;
+        var st=val;
+        comp();
+        function comp(){
+             cmp=Math.floor(Math.random()*3);
+            //  cmp=2;
+            if(cmp==0){
+                image2.src = "./paper_image.png";
+            }else if(cmp==1){
+                image2.src = "./scizzors.png";
+            }else{
+                image2.src = "./rock_image.png";
+            }
+            
+        }
+        
+        if(st==cmp){
+            //alert("same move");
+            var btn = document.getElementById("paper");
+            var p = document.createElement("p");
+            p.innerHTML = "Same Move";
+            btn.parentNode.insertBefore(p, btn);
+            p.className = "scolor";
+             setTimeout(function(){
+            let btn = document.getElementById("paper");
+            let element = btn.previousSibling;
+             element.parentNode.removeChild(element);
+             },1000)
+        }
+        else if(st==0 && cmp==2){
+            your_score+=1;
+  
+        }else if(st==1 && cmp==0){
+            your_score++;
+           
+        }else if(st==2&&cmp==1){
+            your_score++;
+          
+        }else{
+            cmp_score=1;
+            gameover();
+          
+        }
+        // function dele(){
+        //     alert("success");
+        // }
+        function gameover(){
+            
+             var css=localStorage.getItem('highscore');
+            //  alert(your_score)
+            //  alert(css)
+             if(your_score>=css){
+              //  alert("highscore")
+                localStorage.setItem('highscore',your_score);
+             }
+             localStorage.setItem('gameover',your_score);
+            document.location = 'result.html';
+        }
+        document.getElementById("urscore").innerHTML=`Your Score :${your_score}`;
+
+    }  
+    
+    </script>
+</body>
+</html>

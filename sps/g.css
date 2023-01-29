@@ -1,0 +1,87 @@
+body{
+    background-color: #f9a12eff;
+    
+}
+#topic{
+    background-color: #9b4a97ff;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+}
+.container{
+    border: solid #9b4a97ff 3px;
+    
+}
+.header-style {
+    color: rgb(4, 92, 44);
+    font-size: 20px;
+}
+.scolor{
+    color: red;
+    text-transform: capitalize;
+}
+.img1{
+    height:"100px";
+    width:"100px";
+    border: #9b4a97ff solid 2px;
+    float: left;
+}
+.img1{
+    margin-left: 5%;
+}
+#image2,#image{
+    height: 200px;
+    width: 200px;
+}
+#image{
+    margin: 5%;
+}
+.u{
+    margin: 4%;
+}
+.you{
+    float: left;
+    margin-left: 10%;
+    margin-top: -10%;
+}
+.comp{
+    float: left;
+    margin-left: 30% ;
+    margin-top: -10%;
+}
+.you1{
+    margin-left: 35%;
+}
+#urscore{
+    margin-top: 10%;
+    margin-left: 40%;
+}
+.button{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 1%;
+}
+#paper,#sissor,#stone{
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #9b4a97ff ;
+    border-radius: 10px;
+    color: black;
+}
+#stone:hover{
+    background-color: yellow;
+}
+#paper:hover{
+    background-color: yellow;
+}
+#sissor:hover{
+    background-color: yellow;
+}
+#sissor{
+    margin: 15px;
+}
+.scolor{
+    margin: 2%;
+}
